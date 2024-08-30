@@ -13,6 +13,11 @@ import java.util.function.Consumer;
 
 public class Runner {
     public static void main(String[] args) {
+
+//        ex1();
+//        ex2();
+
+
         //Задание №1 Зоопарк
         //1. Создать три вида животных:
         // Тигр - умеет рычать, Собака - умеет лаять, Птица - умеет летать.
@@ -30,9 +35,6 @@ public class Runner {
         //Получили первое животное (птица) - вызвали у него полет
         //Запрещено пользоваться instanceOf.
 
-        ex1();
-//        ex2();
-
 
         //Задание №2 Гидрометцентр
         //Создать две структуры данных, в которых будет статистика по дням (среднесуточная температура воздуха)
@@ -40,6 +42,7 @@ public class Runner {
         //Февраль: -8,-10,-12,-13,-15,-16,-12,-7,-8,-10,-10,-9,-8,-8,-8,-9,-10,-9,-5,-6,-8,-7,-8,-9,-6,-5,-3,-1
         //Объединить данные за январь и февраль, посчитать среднесуточную температуру воздуха за 2 месяца.
         //Запрещено использовать массивы.
+
 
         //Задание №3 Ресторанный гуру
         //Николай Петрович ходит по ресторанам. За 5 дней он был во множестве ресторанов.
@@ -50,13 +53,23 @@ public class Runner {
         ArrayList<String> wednesday = new ArrayList<>(List.of("Реберная", "Арарат", "Майя", "Ниппон", "Таксим"));
         ArrayList<String> thursday = new ArrayList<>(List.of("Грех", "Ваниль", "Реберная", "Пянсе", "Фо бо"));
         ArrayList<String> friday = new ArrayList<>(List.of("Бёрдс", "Реберная", "Андерсон", "Ниппон", "Чифанька"));
+
+        ex3(monday, tuesday, wednesday, thursday, friday);
+    }
+
+    private static void ex3(ArrayList<String> monday, ArrayList<String> tuesday, ArrayList<String> wednesday,
+                            ArrayList<String>thursday, ArrayList<String> friday) {
+        ArrayList<ArrayList> arrayLists = new ArrayList<>(List.of(monday, tuesday, wednesday, thursday, friday));
+        for (int i = 1; i < arrayLists.size(); i++) {
+            arrayLists.get(0).retainAll(arrayLists.get(i));
+        }
+        System.out.println(arrayLists.get(0).get(0));
     }
 
     private static void ex1() {
         Zoo<Animal> zoo = new Zoo<Animal>(new Tiger(), new Dog(), new Bird());
-        zoo.toString();
-        Tiger animal1 = zoo.getAnimal1();
-        animal1.tigerGrowls();
+        Tiger tiger = zoo.getAnimal1();
+        tiger.tigerGrowls();
         Dog dog = zoo.getAnimal2();
         dog.dogBarks();
         Bird bird = zoo.getAnimal3();
@@ -75,6 +88,7 @@ public class Runner {
         for(Integer item : monthlySum) {
             sum += item;
         }
+        System.out.println(monthlySum);
         System.out.println(sum / monthlySum.size());
     }
 }

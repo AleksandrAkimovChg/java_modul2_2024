@@ -13,15 +13,8 @@ public class Zoo <T extends Animal> {
         this.animals[2] = animal3;
     }
 
-    @Override
-    public String toString() {
-        return "Zoo{" +
-                "animals=" + Arrays.toString(animals) +
-                '}';
-    }
-
     public <T > T getAnimal1() {
-        return (T) this.animals[0];
+        return this.animals[0];
     }
 
     public <T> T getAnimal2() {

@@ -15,7 +15,7 @@ public class Runner {
     public static void main(String[] args) {
 
 //        ex1();
-//        ex2();
+        ex2();
 
 
         //Задание №1 Зоопарк
@@ -88,7 +88,6 @@ public class Runner {
         for(Integer item : monthlySum) {
             sum += item;
         }
-        System.out.println(monthlySum);
         System.out.println(sum / monthlySum.size());
     }
 }

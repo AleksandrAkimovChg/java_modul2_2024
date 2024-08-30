@@ -14,7 +14,7 @@ public class Zoo <T extends Animal> {
     }
 
     public <T > T getAnimal1() {
-        return this.animals[0];
+        return (T) this.animals[0];
     }
 
     public <T> T getAnimal2() {

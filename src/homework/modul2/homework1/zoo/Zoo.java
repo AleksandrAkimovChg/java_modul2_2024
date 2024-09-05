@@ -2,26 +2,26 @@ package homework.modul2.homework1.zoo;
 
 import homework.modul2.homework1.zoo.animal.Animal;
 
-import java.util.Arrays;
+public class Zoo <T extends Animal, D extends Animal, B extends Animal> {
+    private T firstAnimal;
+    private D secondAnimal;
+    private B thirdAnimal;
 
-public class Zoo <T extends Animal> {
-    Animal[] animals = new Animal[3];
-
-    public Zoo(T animal1, T animal2, T animal3) {
-        this.animals[0] = animal1;
-        this.animals[1] = animal2;
-        this.animals[2] = animal3;
+    public Zoo(T firstAnimal, D secondAnimal, B thirdAnimal) {
+        this.firstAnimal = firstAnimal;
+        this.secondAnimal = secondAnimal;
+        this.thirdAnimal = thirdAnimal;
     }
 
-    public <T > T getAnimal1() {
-        return (T) this.animals[0];
+    public T getFirstAnimal() {
+        return firstAnimal;
     }
 
-    public <T> T getAnimal2() {
-        return (T) this.animals[1];
+    public D getSecondAnimal() {
+        return secondAnimal;
     }
 
-    public <T> T getAnimal3() {
-        return (T) this.animals[2];
+    public B getThirdAnimal() {
+        return thirdAnimal;
     }
 }

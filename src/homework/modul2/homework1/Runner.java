@@ -14,7 +14,7 @@ public class Runner {
     public static void main(String[] args) {
 
 //        ex1();
-//        ex2();
+        ex2();
 
         ArrayList<String> monday = new ArrayList<>(
                 List.of("Чебуречная №1", "Реберная", "Андерсон", "Ниппон", "Фо бо"));
@@ -42,15 +42,14 @@ public class Runner {
                 -2, -7, -3, -1, -8, -9, -8, -8, -18, -20, -23, -24, -25, -9, -8, -7, -6, -5, -1);
         List<Integer> february = List.of(-8, -10, -12, -13, -15, -16, -12, -7, -8, -10,
                 -10, -9, -8, -8, -8, -9, -10, -9, -5, -6, -8, -7, -8, -9, -6, -5, -3, -1);
-        ArrayList<Integer> monthlyAverage = new ArrayList<>();
+        List<Integer> monthlyAverage = new ArrayList<>();
         monthlyAverage.addAll(january);
         monthlyAverage.addAll(february);
-        double sum = 0;
+        BigDecimal result = BigDecimal.ZERO;
         for (Integer item : monthlyAverage) {
-            sum += item;
+            result = result.add(BigDecimal.valueOf(item));
         }
-        BigDecimal result = new BigDecimal(sum / monthlyAverage.size()).setScale(1, RoundingMode.HALF_UP);
-        System.out.println(result);
+        System.out.println(result.divide(BigDecimal.valueOf(monthlyAverage.size()), 1, RoundingMode.HALF_UP));
     }
 
     private static void ex3(ArrayList<String> monday, ArrayList<String> tuesday, ArrayList<String> wednesday,

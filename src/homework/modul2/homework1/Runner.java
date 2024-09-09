@@ -13,7 +13,7 @@ import java.util.List;
 public class Runner {
     public static void main(String[] args) {
 
-//        ex1();
+        ex1();
         ex2();
 
         ArrayList<String> monday = new ArrayList<>(
@@ -26,8 +26,7 @@ public class Runner {
                 List.of("Грех", "Ваниль", "Реберная", "Пянсе", "Фо бо"));
         ArrayList<String> friday = new ArrayList<>(
                 List.of("Бёрдс", "Реберная", "Андерсон", "Ниппон", "Чифанька"));
-
-//        ex3(monday, tuesday, wednesday, thursday, friday);
+        ex3(monday, tuesday, wednesday, thursday, friday);
     }
 
     private static void ex1() {

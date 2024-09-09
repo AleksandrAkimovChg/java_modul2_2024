@@ -26,7 +26,6 @@ public class Runner {
                 List.of("Грех", "Ваниль", "Реберная", "Пянсе", "Фо бо"));
         ArrayList<String> friday = new ArrayList<>(
                 List.of("Бёрдс", "Реберная", "Андерсон", "Ниппон", "Чифанька"));
-
         ex3(monday, tuesday, wednesday, thursday, friday);
     }
 
@@ -38,21 +37,18 @@ public class Runner {
     }
 
     private static void ex2() {
-
         List<Integer> january = List.of(0, -1, -1, -2, -5, -6, -7, -8, -9, -10, -5, -5,
                 -2, -7, -3, -1, -8, -9, -8, -8, -18, -20, -23, -24, -25, -9, -8, -7, -6, -5, -1);
         List<Integer> february = List.of(-8, -10, -12, -13, -15, -16, -12, -7, -8, -10,
                 -10, -9, -8, -8, -8, -9, -10, -9, -5, -6, -8, -7, -8, -9, -6, -5, -3, -1);
-
-        ArrayList<Integer> monthlyAverage = new ArrayList<>();
+        List<Integer> monthlyAverage = new ArrayList<>();
         monthlyAverage.addAll(january);
         monthlyAverage.addAll(february);
-        double sum = 0;
+        BigDecimal result = BigDecimal.ZERO;
         for (Integer item : monthlyAverage) {
-            sum += item;
+            result = result.add(BigDecimal.valueOf(item));
         }
-        BigDecimal result = new BigDecimal(sum / monthlyAverage.size()).setScale(1, RoundingMode.HALF_UP);
-        System.out.println(result);
+        System.out.println(result.divide(BigDecimal.valueOf(monthlyAverage.size()), 1, RoundingMode.HALF_UP));
     }
 
     private static void ex3(ArrayList<String> monday, ArrayList<String> tuesday, ArrayList<String> wednesday,

@@ -21,7 +21,6 @@ public class Runner {
     private final static String BAGGAGE_CATEGORY_HEAVY = "Тяжелый";
 
     public static void main(String[] args) {
-
         ex1("luggage.csv");
         System.out.println(ex2("luggage.csv"));
     }

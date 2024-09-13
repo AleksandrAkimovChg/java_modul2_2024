@@ -6,13 +6,12 @@ import java.time.format.DateTimeFormatter;
 
 public class Review {
     private static int count;
-    private Integer id;
-    private String text;
-    private Integer like;
-    private LocalDateTime dateTime;
+    private final Integer id;
+    private final String text;
+    private final Integer like;
+    private final LocalDateTime dateTime;
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-    private LocalDateTime timestamp;
-    private final ZoneId zoneId = ZoneId.of("Europe/Moscow");
+    private final LocalDateTime timestamp;
 
     public Review(int id, String text, Integer like, String dateTime) {
         ++count;
@@ -20,6 +19,7 @@ public class Review {
         this.text = text;
         this.like = like;
         this.dateTime = LocalDateTime.parse(dateTime, formatter);
+        ZoneId zoneId = ZoneId.of("Europe/Moscow");
         this.timestamp = LocalDateTime.now(zoneId);
     }
 

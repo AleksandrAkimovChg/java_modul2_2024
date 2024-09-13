@@ -1,7 +1,5 @@
 package homework.modul2.homework3.ex5;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Runner {

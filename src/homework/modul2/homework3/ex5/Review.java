@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Review {
     private static int count;
+    private final Integer idCount;
     private final Integer id;
     private final String text;
     private final Integer like;
@@ -14,7 +15,7 @@ public class Review {
     private final LocalDateTime timestamp;
 
     public Review(int id, String text, Integer like, String dateTime) {
-        ++count;
+        this.idCount = ++count;
         this.id = id;
         this.text = text;
         this.like = like;

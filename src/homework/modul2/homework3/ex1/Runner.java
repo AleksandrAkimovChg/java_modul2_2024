@@ -6,10 +6,10 @@ import homework.modul2.homework3.ex1.fruit.GrowFruit;
 
 public class Runner {
     public static void main(String[] args) {
-        GrowFruit<Apple> appleFerm = () -> new Apple();
-        GrowFruit<Apricot> apricotFerm = () -> new Apricot();
+        GrowFruit<Apple> appleFarm = () -> new Apple();
+        GrowFruit<Apricot> apricotFarm = () -> new Apricot();
 
-        Apple apple = appleFerm.get();
-        Apricot apricot = apricotFerm.get();
+        Apple apple = appleFarm.get();
+        Apricot apricot = apricotFarm.get();
     }
 }

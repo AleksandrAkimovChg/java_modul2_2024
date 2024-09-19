@@ -1,7 +1,5 @@
 package homework.modul2.homework2;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
@@ -24,10 +22,16 @@ public class QueueBaggage {
         Queue<String> queue = new ArrayDeque<>();
         try (Scanner scanner = new Scanner(QueueBaggage.class.getClassLoader().getResourceAsStream(filename))) {
             while (scanner.hasNext()) {
-                scanner.nextLine();
+                skipFirstLineFromFile(scanner);
                 loadBaggageOnTape(queue, scanner);
                 claimBaggage(queue);
             }
+        }
+    }
+
+    private static void skipFirstLineFromFile(Scanner scanner) {
+        if (scanner.hasNext()) {
+            scanner.nextLine();
         }
     }
 

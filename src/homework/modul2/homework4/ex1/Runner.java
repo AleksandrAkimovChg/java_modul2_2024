@@ -1,6 +1,5 @@
 package homework.modul2.homework4.ex1;
 
-import java.text.DecimalFormat;
 import java.util.stream.Stream;
 
 public class Runner {
@@ -33,8 +32,8 @@ public class Runner {
                 .limit(LIMIT_CAR);
         Stream.concat(stream1, stream2)
                 .filter(e ->
-                    Integer.valueOf(e.getNumber().substring(2, 4)) >= MIN_RANGE
-                            && Integer.valueOf(e.getNumber().substring(2, 4)) < MAX_RANGE)
-                .forEach(e -> System.out.println(e));
+                    Integer.parseInt(e.getNumber().substring(2, 4)) >= MIN_RANGE
+                            && Integer.parseInt(e.getNumber().substring(2, 4)) < MAX_RANGE)
+                .forEach(System.out::println);
     }
 }

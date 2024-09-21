@@ -19,7 +19,7 @@ public class Car {
 
     private void setCount(int index) {
         this.count = countPattern1;
-        if (index !=0) {
+        if (index != 0) {
             this.count = countPattern2;
         }
     }

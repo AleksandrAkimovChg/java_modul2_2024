@@ -1,8 +1,6 @@
 package homework.modul2.homework4.ex2;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class Runner {
     public static void main(String[] args) {
@@ -23,7 +21,7 @@ public class Runner {
          */
         list.stream()
                 .map(e -> e.replaceAll("[^о]", ""))
-                .map(e -> e.length())
+                .map(String::length)
                 .forEach(System.out::println);
 
         /**
@@ -31,7 +29,7 @@ public class Runner {
          */
         Integer reduce = list.stream()
                 .map(e -> e.replaceAll("[^о]", ""))
-                .map(e -> e.length()).reduce(0, Integer::sum);
+                .map(String::length).reduce(0, Integer::sum);
         System.out.println(reduce);
 
         /**

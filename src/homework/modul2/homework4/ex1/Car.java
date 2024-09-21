@@ -38,8 +38,7 @@ public class Car {
     }
 
     private void doNumber() {
-        String str = String.format(this.pattern, this.count);
-        this.number = str;
+        this.number = String.format(this.pattern, this.count);;
     }
 
     public String getNumber() {

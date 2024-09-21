@@ -4,15 +4,13 @@ public class Car {
     private static Integer countPattern1 = 0;
     private static Integer countPattern2 = 0;
     private Integer count;
-    private String pattern;
     private String number;
-    private CarNumberPattern carNumberPattern;
+    private final String pattern;
 
     public Car(CarNumberPattern carNumberPattern) {
-        this.carNumberPattern = carNumberPattern;
-        this.pattern = this.carNumberPattern.getPatternNumber();
-        setCount(this.carNumberPattern.getIndex());
-        countChoicePatternCount(this.carNumberPattern.getIndex());
+        this.pattern = carNumberPattern.getPatternNumber();
+        setCount(carNumberPattern.getIndex());
+        countChoicePatternCount(carNumberPattern.getIndex());
         counting();
         doNumber();
     }

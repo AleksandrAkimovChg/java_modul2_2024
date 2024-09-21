@@ -60,7 +60,7 @@ public class Runner {
          */
         skyscrapersDistinct.stream().filter(e -> e.getHeight() > 1000).findAny()
                 .ifPresentOrElse(
-                        e -> System.out.println(e),
+                        System.out::println,
                         () -> System.out.println("небоскреба выше километра - нет"));
     }
 }

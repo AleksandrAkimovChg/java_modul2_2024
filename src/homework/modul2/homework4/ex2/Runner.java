@@ -1,6 +1,7 @@
 package homework.modul2.homework4.ex2;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Runner {
     public static void main(String[] args) {
@@ -27,17 +28,18 @@ public class Runner {
         /**
          * 2.2 Посчитать сумму количества букв "о" во всех словах из набора
          */
-        Integer reduce = list.stream()
-                .map(e -> e.replaceAll("[^о]", ""))
-                .map(String::length).reduce(0, Integer::sum);
-        System.out.println(reduce);
+        long count = list.stream()
+                .flatMapToInt(String::chars)
+                .filter(c -> c == 'о').count();
+        System.out.println(count);
 
         /**
          * 2.3 Вывести на экран сумму букв "о". Если в словах нет буквы "о", то распечатать ноль.
          */
-        long count = list2.stream()
+        AtomicInteger number = new AtomicInteger(0);
+        int reduce = list2.stream()
                 .flatMapToInt(String::chars)
-                .filter(c -> c == 'о').count();
-        System.out.println(count);
+                .filter(c -> c == 'о').reduce(0, Integer::sum);
+        System.out.println(reduce);
     }
 }

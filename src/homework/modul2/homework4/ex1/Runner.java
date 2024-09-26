@@ -18,8 +18,7 @@ public class Runner {
         //4. Объединить машины в единый стрим
         //5. Оставить в объединенном стриме машины с номерами 04[0-9] - это номера, выдаваемые чиновникам
         //6. Получить из оставшихся машин номера.
-        //7. Распечатать номера.
-        //ожидаемый результат:
+        //7. Распечатать номера.1        //ожидаемый результат:
         // a040ан799
         // a041ан799
         // ...
@@ -30,10 +29,10 @@ public class Runner {
                 .limit(LIMIT_CAR);
         Stream<Car> stream2 = Stream.generate(() -> new Car(CarNumberPattern.CAR_NUMBER_PATTERN_2))
                 .limit(LIMIT_CAR);
+
         Stream.concat(stream1, stream2)
-                .filter(e ->
-                    Integer.parseInt(e.getNumber().substring(2, 4)) >= MIN_RANGE
-                            && Integer.parseInt(e.getNumber().substring(2, 4)) < MAX_RANGE)
+                .filter(e -> (Integer.parseInt(e.getNumber().substring(2, 4)) >= MIN_RANGE)
+                && Integer.parseInt(e.getNumber().substring(2, 4)) < MAX_RANGE)
                 .forEach(System.out::println);
     }
 }

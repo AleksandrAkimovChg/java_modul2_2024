@@ -1,11 +1,7 @@
 package homework.modul2.homework4.ex3;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Runner {
     public static void main(String[] args) {
@@ -50,23 +46,23 @@ public class Runner {
         /**
          * 4.2. Вывести только первые три небоскреба.
          */
-//        skyscrapersDistinct.stream().limit(3).forEach(System.out::println);
+        skyscrapersDistinct.stream().limit(3).forEach(System.out::println);
 
         /**
          * 4.3. Вывести самый высокий небоскреб.
          */
-//        skyscrapersDistinct.stream().sorted(Comparator.comparingInt(Skyscraper::getHeight).reversed())
-//                .limit(1).forEach(System.out::println);
+
+        skyscrapersDistinct.stream().max(Comparator.comparing(Skyscraper::getHeight)).ifPresent(System.out::println);
 
         /**
          * 4.4. Вывести те небоскребы, которые выше километра.
          * Если выше километра нет, то вывести на экран: небоскреба выше километра - нет.
          */
-        List<Skyscraper> collect = skyscrapersDistinct.stream().filter(e -> e.getHeight() > 1000).toList();
-        collect.stream()
-                .findAny()
-                .ifPresentOrElse(
-                        e -> collect.forEach(System.out::println),
-                        () -> System.out.println("небоскреба выше километра - нет"));
+        skyscrapersDistinct
+                .stream()
+                .filter(e -> e.getHeight() > 1000)
+                .peek(System.out::println)
+                .findFirst()
+                .ifPresentOrElse(e -> {}, () -> System.out.println("небоскреба выше километра - нет"));
     }
 }

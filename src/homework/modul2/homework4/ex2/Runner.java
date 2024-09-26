@@ -1,7 +1,6 @@
 package homework.modul2.homework4.ex2;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Runner {
     public static void main(String[] args) {
@@ -36,7 +35,6 @@ public class Runner {
         /**
          * 2.3 Вывести на экран сумму букв "о". Если в словах нет буквы "о", то распечатать ноль.
          */
-        AtomicInteger number = new AtomicInteger(0);
         int reduce = list2.stream()
                 .flatMapToInt(String::chars)
                 .filter(c -> c == 'о').reduce(0, Integer::sum);

@@ -5,7 +5,7 @@ public class Car {
     private static Integer countPattern2 = 0;
     private Integer count;
     private String number;
-    private final String pattern;
+    private String pattern;
 
     public Car(CarNumberPattern carNumberPattern) {
         this.pattern = carNumberPattern.getPatternNumber();

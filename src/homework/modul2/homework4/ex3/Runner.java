@@ -51,7 +51,6 @@ public class Runner {
         /**
          * 4.3. Вывести самый высокий небоскреб.
          */
-
         skyscrapersDistinct.stream().max(Comparator.comparing(Skyscraper::getHeight)).ifPresent(System.out::println);
 
         /**

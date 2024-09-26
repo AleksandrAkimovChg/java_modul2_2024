@@ -2,7 +2,7 @@ package homework.modul2.homework4.ex1;
 
 import java.util.stream.Stream;
 
-public class Runner {
+public class    Runner {
     private static final int LIMIT_CAR = 50;
     private static final int MIN_RANGE = 40;
     private static final int MAX_RANGE = 50;

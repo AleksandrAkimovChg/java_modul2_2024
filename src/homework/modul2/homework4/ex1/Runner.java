@@ -2,7 +2,7 @@ package homework.modul2.homework4.ex1;
 
 import java.util.stream.Stream;
 
-public class    Runner {
+public class Runner {
     private static final int LIMIT_CAR = 50;
     private static final int MIN_RANGE = 40;
     private static final int MAX_RANGE = 50;
@@ -32,7 +32,7 @@ public class    Runner {
 
         Stream.concat(stream1, stream2)
                 .filter(e -> (Integer.parseInt(e.getNumber().substring(2, 4)) >= MIN_RANGE)
-                && Integer.parseInt(e.getNumber().substring(2, 4)) < MAX_RANGE)
+                        && Integer.parseInt(e.getNumber().substring(2, 4)) < MAX_RANGE)
                 .forEach(System.out::println);
     }
 }

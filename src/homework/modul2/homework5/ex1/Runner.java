@@ -22,21 +22,18 @@ public class Runner {
         Class<Bank> bankClass = Bank.class;
         Constructor<Bank> constructorBank = bankClass.getDeclaredConstructor(BigDecimal.class);
         constructorBank.setAccessible(true);
-        Bank bank = constructorBank.newInstance(new BigDecimal(1500));
 
         Class<Thief> thiefClass = Thief.class;
         Constructor<Thief> constructorThief = thiefClass.getDeclaredConstructor();
         constructorThief.setAccessible(true);
+
+        Bank bank = constructorBank.newInstance(new BigDecimal(1500));
         Thief thief = constructorThief.newInstance();
-        Method methodThief = null;
-        for (Method method : thiefClass.getDeclaredMethods()) {
-            method.setAccessible(true);
-            if (method.getName().equals("stealMoney")) {
-                methodThief = method;
-                System.out.println("ифчик " + methodThief);
-            }
-        }
+
+        Method methodThief = thiefClass.getDeclaredMethod("stealMoney", Bank.class);
+        methodThief.setAccessible(true);
         methodThief.invoke(thief, bank);
+
         System.out.println(bank);
         System.out.println(thief);
     }

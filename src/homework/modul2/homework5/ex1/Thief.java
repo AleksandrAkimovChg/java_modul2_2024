@@ -17,21 +17,37 @@ public class Thief {
 
     private void stealMoney(Bank bank) throws IllegalAccessException,
             NoSuchFieldException, NoSuchMethodException, InvocationTargetException {
+        this.money = this.money.add(getValueMoney(bank));
+        setValueMoneyZero(bank);
+    }
+
+    /**
+     * Получаем значение денег у банка
+     */
+    private BigDecimal getValueMoney(Bank bank)
+            throws NoSuchFieldException, IllegalAccessException {
         Class clazz = bank.getClass();
         Field field = clazz.getDeclaredField("money");
         field.setAccessible(true);
         BigDecimal valueBefore = (BigDecimal) field.get(bank);
-        this.money = this.money.add(valueBefore);
+        return valueBefore;
+    }
+
+    /**
+     * Устанавливаем значение денег у банка - ноль
+     */
+    private void setValueMoneyZero(Bank bank)
+            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Class clazz = bank.getClass();
         Method method = clazz.getDeclaredMethod("setMoney", BigDecimal.class);
         method.setAccessible(true);
         method.invoke(bank, BigDecimal.ZERO);
-        BigDecimal valueAfter = (BigDecimal) field.get(bank);
     }
 
     @Override
     public String toString() {
         return "Thief{" +
-               "money=" + money +
-               '}';
+                "money=" + money +
+                '}';
     }
 }

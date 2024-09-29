@@ -19,22 +19,46 @@ public class Runner {
         //Вор - 1500 денег
         //Банк - 0 денег
 
-        Class<Bank> bankClass = Bank.class;
-        Constructor<Bank> constructorBank = bankClass.getDeclaredConstructor(BigDecimal.class);
-        constructorBank.setAccessible(true);
-
-        Class<Thief> thiefClass = Thief.class;
-        Constructor<Thief> constructorThief = thiefClass.getDeclaredConstructor();
-        constructorThief.setAccessible(true);
-
-        Bank bank = constructorBank.newInstance(new BigDecimal(1500));
-        Thief thief = constructorThief.newInstance();
-
-        Method methodThief = thiefClass.getDeclaredMethod("stealMoney", Bank.class);
-        methodThief.setAccessible(true);
-        methodThief.invoke(thief, bank);
+        Bank bank = createBank(new BigDecimal(1500));
+        Thief thief = createThief();
+        takeMoney(bank, thief);
 
         System.out.println(bank);
         System.out.println(thief);
+    }
+
+    /**
+     * Создаем свой банк
+     */
+    public static Bank createBank(BigDecimal money)
+            throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        Class<Bank> bankClass = Bank.class;
+        Constructor<Bank> constructorBank = bankClass.getDeclaredConstructor(BigDecimal.class);
+        constructorBank.setAccessible(true);
+        Bank bank = constructorBank.newInstance(money);
+        return bank;
+    }
+
+    /**
+     * Создаем своего вора
+     */
+    public static Thief createThief()
+            throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        Class<Thief> thiefClass = Thief.class;
+        Constructor<Thief> constructorThief = thiefClass.getDeclaredConstructor();
+        constructorThief.setAccessible(true);
+        Thief thief = constructorThief.newInstance();
+        return thief;
+    }
+
+    /**
+     * Получаем доступ к методу вора "стянуть деньги" и используем его
+     */
+    public static void takeMoney(Bank bank, Thief thief)
+            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Class<Thief> thiefClass = Thief.class;
+        Method methodThief = thiefClass.getDeclaredMethod("stealMoney", Bank.class);
+        methodThief.setAccessible(true);
+        methodThief.invoke(thief, bank);
     }
 }

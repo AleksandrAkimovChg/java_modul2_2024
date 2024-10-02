@@ -35,8 +35,7 @@ public class Runner {
         Class<Bank> bankClass = Bank.class;
         Constructor<Bank> constructorBank = bankClass.getDeclaredConstructor(BigDecimal.class);
         constructorBank.setAccessible(true);
-        Bank bank = constructorBank.newInstance(money);
-        return bank;
+        return constructorBank.newInstance(money);
     }
 
     /**
@@ -47,8 +46,7 @@ public class Runner {
         Class<Thief> thiefClass = Thief.class;
         Constructor<Thief> constructorThief = thiefClass.getDeclaredConstructor();
         constructorThief.setAccessible(true);
-        Thief thief = constructorThief.newInstance();
-        return thief;
+        return constructorThief.newInstance();
     }
 
     /**

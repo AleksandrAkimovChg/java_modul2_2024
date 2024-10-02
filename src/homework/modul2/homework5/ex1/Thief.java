@@ -29,8 +29,7 @@ public class Thief {
         Class clazz = bank.getClass();
         Field field = clazz.getDeclaredField("money");
         field.setAccessible(true);
-        BigDecimal valueBefore = (BigDecimal) field.get(bank);
-        return valueBefore;
+        return (BigDecimal) field.get(bank);
     }
 
     /**

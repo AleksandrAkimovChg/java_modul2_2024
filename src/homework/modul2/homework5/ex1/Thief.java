@@ -15,8 +15,8 @@ public class Thief {
         this.money = BigDecimal.ZERO;
     }
 
-    private void stealMoney(Bank bank) throws IllegalAccessException,
-            NoSuchFieldException, NoSuchMethodException, InvocationTargetException {
+    private void stealMoney(Bank bank)
+            throws IllegalAccessException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException {
         this.money = this.money.add(getValueMoney(bank));
         setValueMoneyZero(bank);
     }

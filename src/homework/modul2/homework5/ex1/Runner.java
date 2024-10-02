@@ -4,8 +4,8 @@ import java.lang.reflect.*;
 import java.math.BigDecimal;
 
 public class Runner {
-    public static void main(String[] args) throws NoSuchMethodException,
-            InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchFieldException {
+    public static void main(String[] args)
+            throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         //Запрещено изменять модификаторы доступа!
         //Практически все будет через рефлексию
         //Создать банк с 1500 денег
